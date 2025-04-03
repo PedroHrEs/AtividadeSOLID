@@ -12,13 +12,8 @@ public class TaskManager {
         return tasks;
     }
 
-    public List<Task> filterByPriority(String priority) {
-        List<Task> filtered = new ArrayList<>();
-        for (Task t : tasks) {
-            if (t.getPriority().equalsIgnoreCase(priority)) {
-                filtered.add(t);
-            }
-        }
-        return filtered;
+    public List<Task> getFilteredTasks(TaskFilterStrategy filterStrategy) {
+        return filterStrategy.filter(tasks);
     }
+
 }
